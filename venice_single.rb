@@ -16,7 +16,7 @@
 #   require './venice_single'
 #
 #   data = '(Base64-Encoded Receipt Data)'
-#   if receipt = Venice::Receipt.verify(data)
+#   if receipt = TrxnVerification::Receipt.verify(data)
 #     p receipt.to_h
 #   end
 
@@ -25,7 +25,7 @@ require 'net/https'
 require 'uri'
 require 'time'
 
-module Venice
+module TrxnVerification
   VERSION = '0.6.0'
 
   # Environment class defines production and development endpoints

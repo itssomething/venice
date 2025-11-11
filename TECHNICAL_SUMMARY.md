@@ -29,45 +29,45 @@ venice_single.rb (546 lines)
 
 ## What's Included in venice_single.rb
 
-### Module: Venice
+### Module: TrxnVerification
 Main namespace for all classes
 
-### Class: Venice::Environment
+### Class: TrxnVerification::Environment
 - PRODUCTION constant (name + endpoint)
 - DEVELOPMENT constant (name + endpoint)
 
-### Class: Venice::Client
+### Class: TrxnVerification::Client
 HTTP client for Apple's verification API
 - Class methods: `development`, `production`
 - Instance method: `verify!(data, options = {})`
 - Private method: `json_response_from_verifying_data`
 
-### Class: Venice::Client::TimeoutError
+### Class: TrxnVerification::Client::TimeoutError
 Custom timeout error
 
-### Class: Venice::Client::InvalidResponseError  
+### Class: TrxnVerification::Client::InvalidResponseError  
 Custom invalid response error
 
-### Class: Venice::InAppReceipt
+### Class: TrxnVerification::InAppReceipt
 Represents an in-app purchase
 - 13 attribute readers
 - `initialize(attributes = {})`
 - `to_hash` / `to_h` / `to_json`
 
-### Class: Venice::PendingRenewalInfo
+### Class: TrxnVerification::PendingRenewalInfo
 Pending renewal information for subscriptions
 - 9 attribute readers
 - `initialize(attributes)`
 - `to_hash` / `to_h` / `to_json`
 
-### Class: Venice::Receipt
+### Class: TrxnVerification::Receipt
 Main receipt verification class
 - 15 attribute readers
 - Class methods: `verify`, `verify!`, `validate`, `validate!`
 - Instance methods: `development?` (accepts both 'development' and 'sandbox'), `production?`, `to_hash`, `to_h`, `to_json`
 - MAX_RE_VERIFY_COUNT constant
 
-### Class: Venice::Receipt::VerificationError
+### Class: TrxnVerification::Receipt::VerificationError
 Receipt verification error with detailed messages
 - `code` method
 - `retryable?` method
@@ -106,7 +106,7 @@ No external gems required!
 require 'venice'
 
 data = '(Base64-Encoded Receipt Data)'
-receipt = Venice::Receipt.verify(data)
+receipt = TrxnVerification::Receipt.verify(data)
 ```
 
 ### Using the Single File
@@ -114,7 +114,7 @@ receipt = Venice::Receipt.verify(data)
 require_relative 'venice_single'
 
 data = '(Base64-Encoded Receipt Data)'
-receipt = Venice::Receipt.verify(data)
+receipt = TrxnVerification::Receipt.verify(data)
 ```
 
 The API is identical!

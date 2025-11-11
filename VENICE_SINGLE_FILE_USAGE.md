@@ -24,7 +24,7 @@ require_relative 'venice_single'
 
 # Verify a receipt
 data = '(Base64-Encoded Receipt Data)'
-if receipt = Venice::Receipt.verify(data)
+if receipt = TrxnVerification::Receipt.verify(data)
   puts receipt.to_h
   
   # Access receipt properties
@@ -51,7 +51,7 @@ data = '(Base64-Encoded Receipt Data)'
 # To generate a shared secret, go to App Store Connect -> My Apps > (Your app) > In-App Purchases > View or generate a shared secret
 opts = { shared_secret: 'your key' }
 
-if receipt = Venice::Receipt.verify(data, opts)
+if receipt = TrxnVerification::Receipt.verify(data, opts)
   # Renewed receipts are added into `latest_receipt_info` array
   puts receipt.latest_receipt_info.map(&:expires_at)
   # => [2016-05-19 20:35:59 +0000, 2016-06-18 20:35:59 +0000, 2016-07-18 20:35:59 +0000]
@@ -66,21 +66,21 @@ require_relative 'venice_single'
 data = '(Base64-Encoded Receipt Data)'
 
 begin
-  receipt = Venice::Receipt.verify!(data)
+  receipt = TrxnVerification::Receipt.verify!(data)
   puts "Receipt verified: #{receipt.bundle_id}"
-rescue Venice::Receipt::VerificationError => e
+rescue TrxnVerification::Receipt::VerificationError => e
   puts "Verification failed: #{e.message}"
   puts "Error code: #{e.code}"
-rescue Venice::Client::TimeoutError => e
+rescue TrxnVerification::Client::TimeoutError => e
   puts "Request timed out: #{e.message}"
-rescue Venice::Client::InvalidResponseError => e
+rescue TrxnVerification::Client::InvalidResponseError => e
   puts "Invalid response: #{e.message}"
 end
 ```
 
 ## Available Classes
 
-### Venice::Receipt
+### TrxnVerification::Receipt
 Main class for verifying receipts. 
 
 **Class Methods:**
@@ -103,7 +103,7 @@ Main class for verifying receipts.
 - `receipt_type` - Receipt type
 - `environment` - Verification environment
 
-### Venice::InAppReceipt
+### TrxnVerification::InAppReceipt
 Represents an in-app purchase receipt.
 
 **Properties:**
@@ -115,7 +115,7 @@ Represents an in-app purchase receipt.
 - `is_trial_period` - Whether in trial period
 - `is_in_intro_offer_period` - Whether in intro offer period
 
-### Venice::PendingRenewalInfo
+### TrxnVerification::PendingRenewalInfo
 Information about pending renewals for auto-renewable subscriptions.
 
 **Properties:**
@@ -124,7 +124,7 @@ Information about pending renewals for auto-renewable subscriptions.
 - `expiration_intent` - Reason for expiration
 - `product_id` - Product identifier
 
-### Venice::Client
+### TrxnVerification::Client
 HTTP client for communicating with Apple's servers.
 
 **Class Methods:**
@@ -134,7 +134,7 @@ HTTP client for communicating with Apple's servers.
 **Instance Methods:**
 - `verify!(data, options = {})` - Verify receipt data
 
-### Venice::Environment
+### TrxnVerification::Environment
 Contains endpoint URLs for Apple's verification services.
 
 **Constants:**

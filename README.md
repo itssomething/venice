@@ -8,10 +8,11 @@
 
 Looking for a simple, standalone solution? Check out **`venice_single.rb`** - all Venice functionality consolidated into a single Ruby file with zero external dependencies!
 
-- 📄 **One file**: `venice_single.rb` (546 lines)
+- 📄 **One file**: `venice_single.rb` (549 lines)
 - 📦 **Zero dependencies**: Only uses Ruby standard library
 - ✅ **100% compatible**: All 54 tests pass
 - 📚 **Well documented**: See [VENICE_SINGLE_FILE_USAGE.md](VENICE_SINGLE_FILE_USAGE.md)
+- 🔄 **Module renamed**: Uses `TrxnVerification` instead of `Venice` (e.g., `TrxnVerification::Receipt.verify(data)`)
 
 [Learn more about the single file version →](TECHNICAL_SUMMARY.md)
 
