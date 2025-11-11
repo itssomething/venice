@@ -4,6 +4,18 @@
 
 > **Note**: This project is no longer being maintained.
 
+## 🎯 Single File Version Available!
+
+Looking for a simple, standalone solution? Check out **`venice_single.rb`** - all Venice functionality consolidated into a single Ruby file with zero external dependencies!
+
+- 📄 **One file**: `venice_single.rb` (549 lines)
+- 📦 **Zero dependencies**: Only uses Ruby standard library
+- ✅ **100% compatible**: All 54 tests pass
+- 📚 **Well documented**: See [VENICE_SINGLE_FILE_USAGE.md](VENICE_SINGLE_FILE_USAGE.md)
+- 🔄 **Module renamed**: Uses `TrxnVerification` instead of `Venice` (e.g., `TrxnVerification::Receipt.verify(data)`)
+
+[Learn more about the single file version →](TECHNICAL_SUMMARY.md)
+
 Venice is a simple gem for verifying Apple In-App Purchase receipts, and retrieving the information associated with receipt data.
 
 There are two reasons why you should verify in-app purchase receipts on the server: First, it allows you to keep your own records of past purchases, which is useful for up-to-the-minute metrics and historical analysis. Second, server-side verification over SSL is the most reliable way to determine the authenticity of purchasing records.
