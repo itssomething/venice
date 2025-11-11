@@ -64,7 +64,7 @@ Pending renewal information for subscriptions
 Main receipt verification class
 - 15 attribute readers
 - Class methods: `verify`, `verify!`, `validate`, `validate!`
-- Instance methods: `development?`, `production?`, `to_hash`, `to_h`, `to_json`
+- Instance methods: `development?` (accepts both 'development' and 'sandbox'), `production?`, `to_hash`, `to_h`, `to_json`
 - MAX_RE_VERIFY_COUNT constant
 
 ### Class: Venice::Receipt::VerificationError

@@ -426,11 +426,14 @@ module Venice
     end
 
     def development?
-      environment == Environment::DEVELOPMENT.name
+      return false unless environment
+      env_downcase = environment.downcase
+      env_downcase == 'development' || env_downcase == 'sandbox'
     end
 
     def production?
-      environment == Environment::PRODUCTION.name
+      return false unless environment
+      environment.downcase == 'production'
     end
 
     def to_hash

@@ -88,8 +88,8 @@ Main class for verifying receipts.
 - `verify!(data, options = {})` - Verify receipt, raises exception on error
 
 **Instance Methods:**
-- `development?` - Check if receipt is from sandbox
-- `production?` - Check if receipt is from production
+- `development?` - Check if receipt is from sandbox/development environment (returns true for both 'development' and 'sandbox', case-insensitive)
+- `production?` - Check if receipt is from production environment (case-insensitive)
 - `to_hash` / `to_h` - Convert to hash
 - `to_json` - Convert to JSON
 
